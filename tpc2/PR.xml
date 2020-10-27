@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "PR.dtd">
+<pr>
+    <header>
+        <keyname>TPC2/DAW-2020</keyname>
+        <title>DTD and XML</title>
+        <begindate>October 2020</begindate>
+        <enddate>October 2021</enddate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+    </header>
+    <workteam>
+        <worker>
+            <name>Angélica Freitas</name>
+            <email>a83761@alunos.uminho.pt</email>
+            <number>a83761</number>
+        </worker>
+    </workteam>
+    <abstract>
+        <paragraph><bold>DAW</bold>'s (Web Application Development) <italic>project record</italic>. 
+            See original pr: <link url="http://www4.di.uminho.pt/~jcr/PROJS/micei2002/guilherme/Project%20Record.htm">original</link>
+        </paragraph>
+    </abstract>
+    <deliverables>
+        <link url="file:///home/angelica/DAW2020/tpc2/PR.dtd">DTD</link>
+        <link url="file:///home/angelica/DAW2020/tpc2/PR.XML">XML</link>
+    </deliverables>
+</pr>
