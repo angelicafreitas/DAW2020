@@ -6,11 +6,11 @@
         <xsl:result-document href="site/index.html">
             <html>
                 <head>
-                    <title>Arquivo Sítios</title>
+                    <title>Archeosites</title>
                 </head>
                 <body>
-                    <h2>Arquivo de Sítios</h2>
-                    <h3>Índice </h3>
+                    <h2>Archeosites' archives</h2>
+                    <h3>Index </h3>
                     <ol>
                         <xsl:apply-templates select="//ARQELEM" mode="indice">
                             <xsl:sort select="IDENTI"></xsl:sort>
@@ -40,7 +40,7 @@
         <xsl:result-document href="site/{generate-id()}.html">
             <html>
                 <head>
-                    <title>Sítio</title>
+                    <title>Archeosite</title>
                 </head>
                 <body>
                     <center>
