@@ -28,6 +28,7 @@
     <!-- Templates de Índice.....................................-->
     <xsl:template match="ARQELEM" mode="indice">
         <li>
+            <a name="i{generate-id()}"/>
             <a href="{generate-id()}.html">
                 <xsl:value-of select="IDENTI"/>
             </a>                
@@ -42,6 +43,20 @@
                     <title>Sítio</title>
                 </head>
                 <body>
+                    <center>
+                        <h2> <xsl:value-of select="IDENTI"/></h2>                        
+                    </center>
+                    <dl>
+                        <xsl:for-each select="*[name()!='TIPO' and name()!='IDENTI']">
+                            <dt><b><xsl:value-of select="name()"/>:</b></dt>
+                            <dd><xsl:apply-templates select="."></xsl:apply-templates></dd>
+                        </xsl:for-each>
+                    </dl>
+                    
+                    <address>
+                        [<a href="index.html#i{generate-id()}">Go to index</a>]
+                    </address>
+                    
                 </body>
             </html>
         </xsl:result-document>
