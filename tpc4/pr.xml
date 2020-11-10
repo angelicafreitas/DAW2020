@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>TPC4/DAW-2020</key>
+        <title>Node.js server</title>
+        <bdate>October 2020</bdate>
+        <edate>November 2020</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83761">
+            <name>Angélica Freitas</name>
+            <email>a83761@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>
+            <b>DAW</b>'s (Web Application Development) XSLT project about archeosites with a node.js server.             
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="file:///home/angelica/DAW2020/tpc4/arq.dtd">DTD</link>
+        <link url="file:///home/angelica/DAW2020/tpc4/arq.xml">XML</link>
+        <link url="file:///home/angelica/DAW2020/tpc4/arq.xsl">XSLT</link>
+        <link url="file:///home/angelica/DAW2020/tpc4/servidor.js">Node.js</link>
+        <link url="file:///home/angelica/DAW2020/tpc4/site/index.html">Index</link>                
+    </deliverables>
+</pr>
