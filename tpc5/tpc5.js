@@ -53,7 +53,11 @@ http.createServer(function(req,res){
                 
                 res.write('<h2>' + curso.designacao + '</h2>')
                 for(var desc of Object.keys(curso)){
-                    if(desc!='designacao'){
+                    if(desc=='instrumento'){
+                        res.write('<div style="margin-bottom:0.5vh;"><b> id do instrumento</b>: ' + curso[desc].id + '</div>')
+                        res.write('<div style="margin-bottom:0.5vh;"><b>#text do instrumento</b>: ' + (curso[desc])['#text'] + '</div>')
+                    }
+                    else if(desc!='designacao'){
                         res.write('<div style="margin-bottom:0.5vh;"><b>' + desc + '</b>: ' + curso[desc] + '</div>')
                     }
                 }

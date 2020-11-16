@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>TPC5/DAW-2020</key>
+        <title>Node.js/JSON server</title>
+        <bdate>November 2020</bdate>
+        <edate>November 2020</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83761">
+            <name>Angélica Freitas</name>
+            <email>a83761@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>
+            <b>DAW</b>'s (Web Application Development) project about a music school with a node.js and JSON server.             
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="file:///home/angelica/DAW2020/tpc5/db.json">Database</link>
+        <link url="file:///home/angelica/DAW2020/tpc5/pr.xml">Project Record</link>
+        <link url="file:///home/angelica/DAW2020/tpc5/tpc5.js">Node.js</link>
+    </deliverables>
+</pr>
