@@ -16,10 +16,15 @@
     </team>
     <abstract>
         <p>
-            <b>DAW</b>'s (Web Application Development) project             
+            <b>DAW</b>'s (Web Application Development) SPA for toDo lists, using html forms and json and node servers.            
         </p>
     </abstract>
     <deliverables>
-        <link url="file:///home/angelica/DAW2020/"></link>
+        <link url="file:///home/angelica/DAW2020/tpc6/db.json">Database</link>
+        <link url="file:///home/angelica/DAW2020/tpc6/server.js">Node.js server</link>
+        <link url="file:///home/angelica/DAW2020/tpc6/static.js">Node.js static files handler</link>
+        <link url="file:///home/angelica/DAW2020/tpc6/public/favicon.png">Icon</link>
+        <link url="file:///home/angelica/DAW2020/tpc6/pr.xml">Project record</link>
+        <link url="file:///home/angelica/DAW2020/tpc6/package.json">Package json</link>
     </deliverables>
 </pr>

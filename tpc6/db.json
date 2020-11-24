@@ -7,34 +7,16 @@
       "who": "Angélica",
       "what": "clean room",
       "type": "housekeeping",
-      "state": "toDo"
+      "state": "resolved"
     },
     {
-      "id": 2,
-      "dateCreated": "22-11-2020",
-      "dateDued": "21-11-2020",
-      "who": "Angélica",
-      "what": "TEST",
-      "type": "housekeeping",
-      "state": "toDo"
-    },
-    {
-      "dateCreated": "22-11-2020",
-      "dateDued": "22-11-2020",
-      "who": "Angélica",
-      "what": "clean dishes",
-      "type": "housekeeping",
-      "state": "resolved",
-      "id": 3
-    },
-    {
-      "dateCreated": "12-12-2012",
-      "dateDued": "13-12-2012",
-      "who": "Angélica",
-      "what": "hekp",
-      "type": "test",
+      "dateCreated": "j",
+      "dateDued": "j",
+      "who": "j",
+      "what": "j",
+      "type": "j",
       "state": "toDo",
-      "id": 4
+      "id": 2
     }
   ]
 }

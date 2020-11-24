@@ -24,31 +24,6 @@ function recuperaInfo(request, callback){
     }
 }
 
-// POST Confirmation HTML Page Template -------------------------------------
-function geraPostConfirm( task, d){
-    return `
-    <html>
-    <head>
-        <title>POST receipt: ${task.what}</title>
-        <meta charset="utf-8"/>
-        <link rel="icon" href="favicon.png"/>
-        <link rel="stylesheet" href="w3.css"/>
-    </head>
-    <body>
-        <div class="w3-card-4">
-            <header class="w3-container w3-teal">
-                <h1>Task: ${task.what} por ${task.who} inserido</h1>
-            </header>
-
-            <footer class="w3-container w3-teal">
-                <address>[<a href="/">Voltar</a>]</address>
-            </footer>
-        </div>
-    </body>
-    </html>
-    `
-}
-
 
 function geraTaskTable( tasks, d, state, title){
     let pagHTML = `
@@ -57,22 +32,35 @@ function geraTaskTable( tasks, d, state, title){
         </div>
         <table class="w3-table w3-bordered">
             <tr>
+                <th>Id</th>
                 <th>Task</th>
                 <th>Date dued</th>
                 <th>Creator</th>
                 <th>Type</th>
                 <th>Date created</th>
+                <th>Actions</th>
             </tr>
         `
     tasks.forEach(t => {
         if(t.state == state){
         pagHTML +=`
             <tr>
-                <td>${t.what}</a></td> 
+                <td>${t.id}</td>
+                <td>${t.what}</td> 
                 <td>${t.dateDued}</td> 
                 <td>${t.who}</td> 
                 <td>${t.type}</td> 
-                <td>${t.dateCreated}</td> 
+                <td>${t.dateCreated}</td>
+                `
+                if(t.state=="resolved"){
+                    pagHTML+=`<td><a href="http://localhost:4000/tasks/delete/${t.id}" class="w3-button w3-black">Delete</a></td>`
+
+                }
+                else{
+                    pagHTML+=`<td><a href="http://localhost:4000/tasks/resolve/${t.id}" class="w3-button w3-black">Mark done</a></td>`
+                }
+                pagHTML+=`
+                
             </tr>
             `
         }
@@ -90,7 +78,8 @@ function geraPagTasks( tasks, d){
         <head>
             <title>Tasks App</title>
             <meta charset="utf-8"/>
-            <link rel="stylesheet" href="w3.css"/>
+            <link rel="icon" href="favicon.png"/>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
         </head>
         <body>
             <center><h1 style="margin-top:10px">Tasks App</h1></center>
@@ -160,6 +149,53 @@ var taskServer = http.createServer(function (req, res) {
                         res.end()
                     })
             }
+            else if(req.url.match(/\/tasks\/resolve\/[0-9]+$/)){
+                var partes = req.url.split('/')
+                var idTask = partes[partes.length -1 ]            
+                axios.get("http://localhost:3000/tasks/"+idTask)
+                    .then(response => {
+                        var task = response.data
+                        task.state= "resolved"
+                        axios.put("http://localhost:3000/tasks/" +idTask,task)
+                            .then(resp => {
+                                res.writeHead(302, {
+                                    'Location': 'http://localhost:4000/tasks',
+                                });
+                                
+                                res.end()
+                            })
+                            .catch(erro => {
+                                res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                                res.write('<p>Erro no PUT: ' + erro + '</p>')
+                                res.write('<p><a href="/">Voltar</a></p>')
+                                res.end()
+                            })
+                        
+                    })
+                    .catch(function(erro){
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write("<p>Não foi possível obter a task...")
+                        res.end()
+                    })
+            }
+            else if(req.url.match(/\/tasks\/delete\/[0-9]+$/)){
+                var partes = req.url.split('/')
+                var idTask = partes[partes.length -1 ]            
+                axios.delete('http://localhost:3000/tasks/' + idTask)
+                    .then(resp => {
+                        res.writeHead(302, {
+                            'Location': 'http://localhost:4000/tasks',
+                        });
+                        
+                        res.end()
+                    })
+                    .catch(erro => {
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write('<p>Erro no DELETE: ' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()
+                    })
+            }
             else{
                 res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
                 res.write("<p>" + req.method + " " + req.url + " não suportado neste serviço.</p>")
@@ -173,8 +209,9 @@ var taskServer = http.createServer(function (req, res) {
                     console.log('POST de task:' + JSON.stringify(resultado))
                     axios.post('http://localhost:3000/tasks', resultado)
                         .then(resp => {
-                            res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                            res.write(geraPostConfirm( resp.data, d))
+                            res.writeHead(302, {
+                                'Location': 'http://localhost:4000/tasks',
+                            });
                             res.end()
                         })
                         .catch(erro => {
@@ -191,6 +228,8 @@ var taskServer = http.createServer(function (req, res) {
                 res.end()
             }
             break
+        case "DELETE":
+            break;
 
         default: 
             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
