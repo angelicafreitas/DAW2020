@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>TPC2/DAW-2020</key>
+        <title></title>
+        <bdate>November 2020</bdate>
+        <edate>November 2020</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83761">
+            <name>Angélica Freitas</name>
+            <email>a83761@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p>
+            <b>DAW</b>'s (Web Application Development) 
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="file:///home/angelica/DAW2020/tpc7/"></link>
+    </deliverables>
+</pr>

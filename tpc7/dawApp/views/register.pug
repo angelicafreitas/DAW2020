@@ -1,0 +1,25 @@
+extends layout
+        
+block content
+    .w3-container.w3-teal
+        h2 Student's Register
+      
+    form(class="w3-container" action="http://localhost:7700/students" method="POST")
+        label(class="w3-text-teal")
+            b Name
+        input(class="w3-input w3-border w3-light-grey",type="text",name="nome")
+    
+        label(class="w3-text-teal")
+            b Number
+        input(class="w3-input w3-border w3-light-grey",type="text",name="numero")
+          
+        label(class="w3-text-teal")
+            b Git
+        input(class="w3-input w3-border w3-light-grey",type="text",name="git")
+
+        center
+            div(style="margin-top:1vh")
+                input(class="w3-btn w3-blue-grey",type="submit",value="Register")
+                input(class="w3-btn w3-blue-grey",type="reset",value="Clean fields",style="margin-left:1vw") 
+            address 
+                a(href="/students") Voltar

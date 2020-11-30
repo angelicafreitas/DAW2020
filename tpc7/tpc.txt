@@ -1,0 +1,22 @@
+Rotas a que deve responder:
+DONE
+    GET /students   - acrescentem apenas links para a página individual do aluno;
+    GET /students/:id  - página individual do aluno com toda a informação, considerem 8 TPs no máximo, investiguem um pouco como ir buscar o id ao url (req.params...);
+    DELETE /students/:id - apaga o aluno da BD.
+    GET /students/register - responde com o formulário, no processamento do formulário investiguem o req.body;
+    POST /students - recebe os dados do formulário (req.body), e insere um registo na BD;
+
+TO DO
+    GET /students/edit/:id - responde com o formulário pré-preenchido e permite que o utilizador altere os valores;
+    PUT /students/:id - recebe os dados dum formulário e altera o registo do aluno na BD;
+    Na página do aluno deverá aparecer a informação dos TPS, sejam criativos;
+    Se conseguirem, tentem juntar tudo numa única interface = 1 ficheiro pug para todas as operações; atenção ao "Se" no início da frase...
+    Como extra, acrescentem uma foto ao registo do aluno e usem-na nas páginas de consulta (esta é difícil, "débrouillez-vous"...
+
+ , 
+  {
+    "numero": "PG42852",
+    "nome": "Vasco Ramos",
+    "git": "https://github.com/vascoalramos/daw",
+    "tpc": [1,1,1,1,1,1,0,0]
+  }

@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    .w3-card
+        header.w3-container.w3-teal
+            h3.w3-left Student #{student.numero} {DAW2020}
+        p
+            b(style="margin-left:2vw")="      Name: "
+            span #{student.nome}
+        p
+            b(style="margin-left:2vw;margin-top:0vh")="      Number: "
+            span #{student.numero}
+        p
+            b(style="margin-left:2vw;")="      Git: "
+            span 
+                a(href=`${student.git}`) #{student.git}
+        table.w3-table-all
+            tr 
+                th TPC
+                th State
+            each s, idx in student.tpc
+                tr
+                    td= idx+1
+                    if s==1
+                        td
+                            i(class="far fa-check-circle fa-2x", style="color:green")
+                    else
+                        td
+                            i(class="far fa-times-circle fa-2x", style="color:red")
+        address 
+            a(href="/students") Voltar
+        footer.w3-container.w3-teal
+            address Gerado por dawApp :: 2020-Nov, amf
