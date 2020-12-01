@@ -28,4 +28,9 @@ module.exports.delete = id => {
     return Student.deleteOne({numero: id}).exec()
 } 
 
+//Updates student from id
+module.exports.update = (id,data) => {
+    return Student.updateOne({numero:id},data).exec()
+}
+
  

@@ -11,12 +11,17 @@ block content
     
         label(class="w3-text-teal")
             b Number
-        input(class="w3-input w3-border w3-light-grey",type="text",name="numero")
+        input(class="w3-input w3-border w3-light-grey",type="text",name="numero", required)
           
         label(class="w3-text-teal")
             b Git
         input(class="w3-input w3-border w3-light-grey",type="text",name="git")
 
+        each val in [1,2,3,4,5,6,7,8]
+            input(type="checkbox",id="tpc" + val,name="tpc" + val,value="1")
+            label(for="tpc"+ val)= "TPC " + val
+            br
+        
         center
             div(style="margin-top:1vh")
                 input(class="w3-btn w3-blue-grey",type="submit",value="Register")

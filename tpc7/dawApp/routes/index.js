@@ -44,7 +44,19 @@ router.delete("/students/:id", function(req, res) {
 
 /* POST student. */
 router.post("/students", function(req, res) {
-  var student = req.body
+  var i;
+  var tpc= []
+  for(i=0;i<8;i++){
+    if(req.body["tpc" + (i+1)] == '1')
+      tpc[i]= 1;
+    else tpc[i] = 0;
+  }
+  var student = {
+    "numero": req.body.numero,
+    "nome": req.body.nome,
+    "git": req.body.git,
+    "tpc": tpc
+  };
   Student.insert(student)
   .then(s => {                                
     res.render('confirmReg')
@@ -52,5 +64,35 @@ router.post("/students", function(req, res) {
   .catch(err => res.render('error', {error: err}))
 })
 
+/* GET edit student page. */
+router.get("/students/edit/:id", function(req, res) {
+  var studentId = req.params.id
+  Student.lookUp(studentId)
+    .then(s => 
+      res.render('edit',{student: s}))
+    .catch(err => res.render('error', {error: err}))
+})
+
+/* PUT student . */
+router.put("/students/:id", function(req, res) {
+  var i;
+  var tpc= []
+  console.log(req.body)
+  for(i=0;i<8;i++){
+    if(req.body["tpc" + (i+1)] == 'true')
+      tpc[i]= 1;
+    else tpc[i] = 0;
+  }
+  var student = {
+    "nome": req.body.nome,
+    "git": req.body.git,
+    "tpc": tpc
+  };
+  var studentId = req.params.id
+  Student.update(studentId,student)
+    .then(s => 
+      res.sendStatus(200))
+    .catch(err => res.render('error', {error: err}))
+})
 
 module.exports = router;
