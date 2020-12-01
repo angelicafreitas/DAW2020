@@ -3,9 +3,9 @@
 <pr>
     <meta>
         <key>TPC2/DAW-2020</key>
-        <title></title>
+        <title>Node server + MongoDB</title>
         <bdate>November 2020</bdate>
-        <edate>November 2020</edate>
+        <edate>December 2020</edate>
         <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
     </meta>
     <team>
@@ -16,10 +16,12 @@
     </team>
     <abstract>
         <p>
-            <b>DAW</b>'s (Web Application Development) 
+            <b>DAW</b>'s (Web Application Development) project about connecting mongodb with node.js  
         </p>
     </abstract>
     <deliverables>
-        <link url="file:///home/angelica/DAW2020/tpc7/"></link>
+        <link url="file:///home/angelica/DAW2020/tpc7/dawApp/">Application folder</link>
+        <link url="file:///home/angelica/DAW2020/tpc7/pr.xml">Project Record</link>        
+        <link url="file:///home/angelica/DAW2020/tpc7/DAW2020.json">Database data</link>                
     </deliverables>
 </pr>

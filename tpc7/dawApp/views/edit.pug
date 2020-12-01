@@ -1,0 +1,37 @@
+extends layout
+        
+block content
+    .w3-container.w3-teal
+        h2=`Edit student: ${student.numero}` 
+      
+    form(class="w3-container",method="POST")
+        label(class="w3-text-teal")
+            b Name
+        input(class="w3-input w3-border w3-light-grey",type="text",name="nome",value=student.nome,id="editNome")
+        input(type="hidden",name="nome",value="nome")
+        
+        
+        label(class="w3-text-teal")
+            b Number
+        input(class="w3-input w3-border w3-light-grey",type="text",name="numero",value=student.numero,readonly, id="editNum")
+        input(type="hidden",name="numero",value="numero")
+          
+        label(class="w3-text-teal")
+            b Git
+        input(class="w3-input w3-border w3-light-grey",type="text",name="git",value=student.git,id="editGit")
+        input(type="hidden",name="git",value="git")
+
+        each val,idx in student.tpc
+            if val==1
+                input(type="checkbox",name="tpc" + (idx+1),checked, id="edit_tpc_" + (idx+1),value='1')
+            else
+                input(type="checkbox",name="tpc" + (idx+1), id="edit_tpc_" + (idx+1),value='1')
+            label(for="tpc"+ (idx+1))= "TPC " + (idx+1)
+            br
+
+        center
+            div(style="margin-top:1vh")
+                input(class="w3-btn w3-blue-grey",value="Edit",id="editButton")
+                input(class="w3-btn w3-blue-grey",type="reset",value="Clean fields",style="margin-left:1vw") 
+            address 
+                a(href="/students") Voltar
