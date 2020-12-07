@@ -61,6 +61,7 @@ app.get('/files/download/:fname', (req,res) =>{
 // })
 
 app.post('/files', upload.array('myFile'), function(req,res){
+    var files = jsonfile.readFileSync('./dbFiles.json')
     for(var i=0;i<req.files.length;i++){
         let curFile = req.files[i]
         let oldPath = __dirname + '/' + curFile.path
@@ -71,7 +72,6 @@ app.post('/files', upload.array('myFile'), function(req,res){
         })
     
         var d = new Date().toISOString().substr(0,16)
-        var files = jsonfile.readFileSync('./dbFiles.json')
         files.push({
             date: d,
             name: curFile.originalname,
@@ -79,11 +79,32 @@ app.post('/files', upload.array('myFile'), function(req,res){
             mimetype: curFile.mimetype,
             desc: req.body.desc[i]
         })
-        jsonfile.writeFileSync('./dbFiles.json',files)
     }
-
+    jsonfile.writeFileSync('./dbFiles.json',files)
 
     res.redirect('/')
 })
+
+app.delete('/files/:fname', (req,res) =>{
+    var files = jsonfile.readFileSync('./dbFiles.json')
+    var flag=1;
+    var index=-1
+    for(var i=0; i<files.length && flag;i++){
+        if(files[i].name==req.params.fname) {
+            index=i;
+            flag=0;
+        }
+    }
+    if (index > -1) {
+        files.splice(index, 1)
+        jsonfile.writeFileSync('./dbFiles.json',files)
+        res.sendStatus(200)      
+    }
+    else{
+        res.sendStatus(500)
+    }
+
+})
+
 
 app.listen(7702, () => console .log('Servidor à escuta na porta 7702...'))

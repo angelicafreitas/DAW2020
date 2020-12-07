@@ -10,6 +10,7 @@ function fileList( files, d){
           <head>
               <title>File List</title>
               <meta charset="utf-8"/>
+              <script src="https://kit.fontawesome.com/8126afab27.js" crossorigin="anonymous"></script>
               <link rel="icon" href="/favicon.png"/>
               <link rel="stylesheet" href="/w3.css"/>
               <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -18,28 +19,39 @@ function fileList( files, d){
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
           </head>
           <body>
-              <div class="w3-card-4 modal" id="display"></div>
+                <div class="w3-card-4 modal" id="display"></div>
 
-              <div class="w3-container w3-teal">
-                  <h2>File List</h2>
-              </div>
-              <table class="w3-table w3-bordered">
-                  <tr>
-                      <th>Date</th>
-                      <th>File</th>
-                      <th>Description</th>
-                      <th>Size</th>
-                      <th>Type</th>
-                  </tr>
+                <div>
+                <div class="w3-container w3-teal">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <h2>File List</h2>
+                        <a href='/files/upload'> 
+                            <i class="fas fa-plus" onClick=addFiles()></i>
+                        </a>
+                    </div>
+                </div>
+            
+                <table class="w3-table w3-bordered">
+                    <tr>
+                        <th>Date</th>
+                        <th>File</th>
+                        <th>Description</th>
+                        <th>Size</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
     `
     files.forEach( f => {
       pagHTML += `
-          <tr onclick='showImage(\"${f.name}", \"${f.mimetype}\");'>
-              <td>${f.date}</td>
-              <td>${f.name}</td>
-              <td>${f.desc}</td>
-              <td>${f.size}</td>
-              <td>${f.mimetype}</td>
+          <tr'>
+              <td onclick='showImage(\"${f.name}", \"${f.mimetype}\")'>${f.date}</td>
+              <td onclick='showImage(\"${f.name}", \"${f.mimetype}\")'>${f.name}</td>
+              <td onclick='showImage(\"${f.name}", \"${f.mimetype}\")'>${f.desc}</td>
+              <td onclick='showImage(\"${f.name}", \"${f.mimetype}\")'>${f.size}</td>
+              <td onclick='showImage(\"${f.name}", \"${f.mimetype}\")'>${f.mimetype}</td>
+              <td>
+                <i class="fas fa-trash-alt" onClick="deleteFile('${f.name}')"></i>
+              </td>
           </tr>
       `
     })

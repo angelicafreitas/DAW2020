@@ -41,3 +41,15 @@ function addFile(){
     </div>`;
     $('#plusOne').append(plus)
   }
+function deleteFile(name){
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:7702/files/" + name,
+        success: (res) => {
+            window.location.reload()
+        },
+        error: (e) => {
+            console.log("Error on delete file")
+        }
+    });
+}
