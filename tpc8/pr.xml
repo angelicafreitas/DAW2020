@@ -2,7 +2,7 @@
 <!DOCTYPE pr SYSTEM "pr.dtd">
 <pr>
     <meta>
-        <key>TPC7/DAW-2020</key>
+        <key>TPC2/DAW-2020</key>
         <title>Node server + MongoDB</title>
         <bdate>November 2020</bdate>
         <edate>December 2020</edate>
