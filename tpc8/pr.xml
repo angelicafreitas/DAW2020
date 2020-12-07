@@ -2,9 +2,9 @@
 <!DOCTYPE pr SYSTEM "pr.dtd">
 <pr>
     <meta>
-        <key>TPC2/DAW-2020</key>
-        <title>Node server + MongoDB</title>
-        <bdate>November 2020</bdate>
+        <key>TPC8/DAW-2020</key>
+        <title>Upload multiple files</title>
+        <bdate>December 2020</bdate>
         <edate>December 2020</edate>
         <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
     </meta>
@@ -16,12 +16,14 @@
     </team>
     <abstract>
         <p>
-            <b>DAW</b>'s (Web Application Development) project about connecting mongodb with node.js  
+            <b>DAW</b>'s (Web Application Development) project about uploading multiple files with node.js  
         </p>
     </abstract>
     <deliverables>
-        <link url="file:///home/angelica/DAW2020/tpc7/dawApp/">Application folder</link>
-        <link url="file:///home/angelica/DAW2020/tpc7/pr.xml">Project Record</link>        
-        <link url="file:///home/angelica/DAW2020/tpc7/DAW2020.json">Database data</link>                
+        <link url="file:///home/angelica/DAW2020/tpc8/pr.xml">Project Record</link>
+        <link url="file:///home/angelica/DAW2020/tpc8/ficheiros-cartoons/ficheiros-cartoons">Cartoon files</link>
+        <link url="file:///home/angelica/DAW2020/tpc8/upload-multiple/server.js">Node.js server</link>
+        <link url="file:///home/angelica/DAW2020/tpc8/upload-multiple/">Application</link>
+
     </deliverables>
 </pr>
